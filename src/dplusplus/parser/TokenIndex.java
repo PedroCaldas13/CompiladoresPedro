@@ -214,7 +214,7 @@ class TokenIndex extends AnalysisAdapter
     }
 
     @Override
-    public void caseTIdentificador(@SuppressWarnings("unused") TIdentificador node)
+    public void caseTId(@SuppressWarnings("unused") TId node)
     {
         this.index = 34;
     }

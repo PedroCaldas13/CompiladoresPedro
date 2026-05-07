@@ -285,7 +285,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTIdentificador(TIdentificador node)
+    public void caseTId(TId node)
     {
         defaultCase(node);
     }
@@ -309,7 +309,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTComentarioBloco(TComentarioBloco node)
+    public void caseTComentarioEmBloco(TComentarioEmBloco node)
     {
         defaultCase(node);
     }

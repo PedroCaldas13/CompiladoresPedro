@@ -48,11 +48,11 @@ public interface Analysis extends Switch
     void caseTEComercial(TEComercial node);
     void caseTInteiro(TInteiro node);
     void caseTReal(TReal node);
-    void caseTIdentificador(TIdentificador node);
+    void caseTId(TId node);
     void caseTIdClasse(TIdClasse node);
     void caseTEspacoEmBranco(TEspacoEmBranco node);
     void caseTComentarioLinha(TComentarioLinha node);
-    void caseTComentarioBloco(TComentarioBloco node);
+    void caseTComentarioEmBloco(TComentarioEmBloco node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);
 }
