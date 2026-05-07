@@ -46,7 +46,7 @@ Tokens
 	real = digito+ '.' digito+; 
 	identificador = minuscula caractere_id*;
 	id_classe = maiuscula caractere_id*;
-	espaco_em_branco = (' ' | '\n' | '\t')+; 	 /* talvez precise de mais algo */
+	espaco_em_branco = (' ' | '\n' | '\t' | '\r')+; 	 /* talvez precise de mais algo */
 	comentario_linha = '--'  '\n'; /* como que faz isso tbm? */ 
 	comentario_bloco = '{-'  '-}'; 	             /* como que faz isso kkkkkk, tem que sabe como ele identifica os terminos do bloco */
 	
