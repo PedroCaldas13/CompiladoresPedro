@@ -4,7 +4,7 @@ Helpers
 	digito = ['0'..'9'];
 	letra = ['a'..'z'] | ['A'..'Z'];
 	minuscula = ['a'..'z'];
-	maiuscula = ['A'..'B'];
+	maiuscula = ['A'..'Z'];
 	caractere_id = digito | letra | '_'; /* caracteres permitidos em identificadores */
 	
 	
