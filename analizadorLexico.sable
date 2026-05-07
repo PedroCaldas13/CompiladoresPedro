@@ -1,0 +1,61 @@
+Package dplusplus;
+    
+Helpers
+	digito = ['0'..'9'];
+	letra = ['a'..'z'] | ['A'..'Z'];
+	minuscula = ['a'..'z'];
+	maiuscula = ['A'..'B'];
+	caractere_id = digito | letra | '_'; /* caracteres permitidos em identificadores */
+	
+	
+/* Palavras reservadas */
+Tokens
+	family = 'family';
+	sim = 'yes';
+	nao = 'no';
+	answer = 'answer';
+	number = 'number';
+	start = 'start';
+	finish = 'finish';
+	procedure = 'procedure';
+	abre_colchete = '[';
+	fecha_colchete = ']';
+	mais = '+';
+	menos = '-';
+	mult = '*';
+	div = '/';
+	object = 'object';
+	unalterable = 'unalterable';
+	function = 'function';
+	in_case_that = 'in case that';
+	aslongas = 'as long as';
+	and = 'and';
+	not = '!';
+	or = 'or';
+	maior_que = '>';
+	menor_que = '<';
+	igual = '=';
+	atribuicao = '<<';
+	par_esq = '(';
+	par_dir = ')';
+	ponto = '.';
+	virgula = ',';
+	separar_expressao = '|';
+	e_comercial = '&';
+	inteiro = digito+;
+	real = digito+ '.' digito+; 
+	identificador = minuscula caractere_id*;
+	id_classe = maiuscula caractere_id*;
+	espaco_em_branco = (' ' | '\n' | '\t')+; 	 /* talvez precise de mais algo */
+	comentario_linha = '--'  '\n'; /* como que faz isso tbm? */ 
+	comentario_bloco = '{-'  '-}'; 	             /* como que faz isso kkkkkk, tem que sabe como ele identifica os terminos do bloco */
+	
+ 
+Ignored Tokens
+	espaco_em_branco,
+	comentario_linha,
+	comentario_bloco;
+	
+Productions
+	ignore = {empty}; /* faz nada */
+	 
