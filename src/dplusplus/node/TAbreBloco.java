@@ -5,16 +5,16 @@ package dplusplus.node;
 import dplusplus.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TNo extends Token
+public final class TAbreBloco extends Token
 {
-    public TNo()
+    public TAbreBloco()
     {
-        super.setText("no");
+        super.setText("{-");
     }
 
-    public TNo(int line, int pos)
+    public TAbreBloco(int line, int pos)
     {
-        super.setText("no");
+        super.setText("{-");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TNo extends Token
     @Override
     public Object clone()
     {
-      return new TNo(getLine(), getPos());
+      return new TAbreBloco(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTNo(this);
+        ((Analysis) sw).caseTAbreBloco(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TNo text.");
+        throw new RuntimeException("Cannot change TAbreBloco text.");
     }
 }

@@ -309,7 +309,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTComentarioEmBloco(TComentarioEmBloco node)
+    public void caseTAbreBloco(TAbreBloco node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTFechaBloco(TFechaBloco node)
     {
         defaultCase(node);
     }

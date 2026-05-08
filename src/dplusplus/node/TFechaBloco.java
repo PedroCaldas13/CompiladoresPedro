@@ -5,16 +5,16 @@ package dplusplus.node;
 import dplusplus.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TAlterable extends Token
+public final class TFechaBloco extends Token
 {
-    public TAlterable()
+    public TFechaBloco()
     {
-        super.setText("alterable");
+        super.setText("-}");
     }
 
-    public TAlterable(int line, int pos)
+    public TFechaBloco(int line, int pos)
     {
-        super.setText("alterable");
+        super.setText("-}");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TAlterable extends Token
     @Override
     public Object clone()
     {
-      return new TAlterable(getLine(), getPos());
+      return new TFechaBloco(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTAlterable(this);
+        ((Analysis) sw).caseTFechaBloco(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TAlterable text.");
+        throw new RuntimeException("Cannot change TFechaBloco text.");
     }
 }

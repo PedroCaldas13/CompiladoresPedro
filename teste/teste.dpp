@@ -1,2 +1,128 @@
-family Pessoa start
+family Animal start
+    unalterable number patas << 4.
+    answer vivo << yes.
+    number peso << 0.
+
+    procedure definirPeso[number p]
+    start
+        peso << p.
+    finish
+
+    function number obterPeso[]
+    start
+        number resultado << peso.
+    finish
+
+    procedure verificar[]
+    start
+        in case that (peso > 100)
+        start
+            answer grande << yes.
+        finish
+        otherwise
+        start
+            answer grande << no.
+        finish
+    finish
+finish
+
+family Cachorro start
+    number idade << 0.
+    answer late << yes.
+    answer vacinado << no.
+
+    procedure definirIdade[number i]
+    start
+        idade << i.
+    finish
+
+    function answer estaVacinado[]
+    start
+        answer resultado << vacinado.
+    finish
+
+    procedure latir[]
+    start
+        number vezes << 3.
+        as long as (vezes > 0)
+        start
+            vezes << vezes - 1.
+        finish
+    finish
+finish
+
+family Matematica start
+    function number somar[number a | number b]
+    start
+        number resultado << a + b.
+    finish
+
+    function number subtrair[number a | number b]
+    start
+        number resultado << a - b.
+    finish
+
+    function number multiplicar[number a | number b]
+    start
+        number resultado << a * b.
+    finish
+
+    function number dividir[number a | number b]
+    start
+        number resultado << a / b.
+    finish
+finish
+
+family Programa start
+    object Cachorro meuCachorro.
+    object Matematica calc.
+
+    >> procedure rodar[]
+    start
+    
+   	-- teste comentario em linha
+
+	{- 
+   	testando comentario em bloco
+	-}
+    	
+
+        number idadeInicial << 2.
+        meuCachorro.definirIdade[idadeInicial].
+
+        number a << 10.
+        number b << 3.
+        number soma << calc.somar[a | b].
+        number diff << calc.subtrair[a | b].
+        number prod << calc.multiplicar[a | b].
+        number divis << calc.dividir[a | b].
+
+        answer maior << a > b.
+        answer menor << a < b.
+        answer iguais << a = b.
+
+        answer ambos << maior and menor.
+        answer algum << maior or menor.
+        answer negado << ! maior.
+
+
+        number pi << 3.14.
+        number raio << 5.0.
+        number area << pi * raio.
+
+        in case that (soma > 10)
+        start
+            answer grande << yes.
+        finish
+        otherwise
+        start
+            answer grande << no.
+        finish
+
+        number contador << 0.
+        as long as (contador < 5)
+        start
+            contador << contador + 1.
+        finish
+    finish
 finish

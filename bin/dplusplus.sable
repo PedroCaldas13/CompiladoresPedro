@@ -62,14 +62,12 @@ Tokens
 	/* falta ver como faz esses comentarios de bloco e linha */
 	
 	comentario_linha = '--';
-	comentario_em_bloco= '{-' '-}';
+	abre_bloco = '{-';    /* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
+	fecha_bloco = '-}';		/* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
 	
  
 Ignored Tokens
-	espaco_em_branco,
-	comentario_linha,
-	comentario_em_bloco;
+	espaco_em_branco;
 	
 Productions
 	ignore = {empty}; /* faz nada */
-	 
