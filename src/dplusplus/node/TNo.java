@@ -5,16 +5,16 @@ package dplusplus.node;
 import dplusplus.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TComentarioLinha extends Token
+public final class TNo extends Token
 {
-    public TComentarioLinha()
+    public TNo()
     {
-        super.setText("--");
+        super.setText("no");
     }
 
-    public TComentarioLinha(int line, int pos)
+    public TNo(int line, int pos)
     {
-        super.setText("--");
+        super.setText("no");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TComentarioLinha extends Token
     @Override
     public Object clone()
     {
-      return new TComentarioLinha(getLine(), getPos());
+      return new TNo(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTComentarioLinha(this);
+        ((Analysis) sw).caseTNo(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TComentarioLinha text.");
+        throw new RuntimeException("Cannot change TNo text.");
     }
 }

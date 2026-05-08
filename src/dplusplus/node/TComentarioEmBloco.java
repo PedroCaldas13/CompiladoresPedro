@@ -7,14 +7,14 @@ import dplusplus.analysis.*;
 @SuppressWarnings("nls")
 public final class TComentarioEmBloco extends Token
 {
-    public TComentarioEmBloco()
+    public TComentarioEmBloco(String text)
     {
-        super.setText("-}");
+        setText(text);
     }
 
-    public TComentarioEmBloco(int line, int pos)
+    public TComentarioEmBloco(String text, int line, int pos)
     {
-        super.setText("-}");
+        setText(text);
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,12 @@ public final class TComentarioEmBloco extends Token
     @Override
     public Object clone()
     {
-      return new TComentarioEmBloco(getLine(), getPos());
+      return new TComentarioEmBloco(getText(), getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTComentarioEmBloco(this);
-    }
-
-    @Override
-    public void setText(@SuppressWarnings("unused") String text)
-    {
-        throw new RuntimeException("Cannot change TComentarioEmBloco text.");
     }
 }

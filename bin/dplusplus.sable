@@ -55,14 +55,14 @@ Tokens
 	
 	/* aqui começam as incertezas */
 	
-	id = minuscula  (digito | letras | espaco)*;
-	id_classe = maiuscula (digito | letras | espaco)*;
+	id = minuscula  (digito | letras | '_')*;
+	id_classe = maiuscula (digito | letras | '_')*;
 	espaco_em_branco = (espaco | nl | tab | rc )+;
 	
 	/* falta ver como faz esses comentarios de bloco e linha */
 	
-	comentario_linha = '--'  '\n';
-	comentario_em_bloco= '-}';
+	comentario_linha = '--';
+	comentario_em_bloco= '{-' '-}';
 	
  
 Ignored Tokens
