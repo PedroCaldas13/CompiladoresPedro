@@ -62,7 +62,8 @@ Tokens
 	/* falta ver como faz esses comentarios de bloco e linha */
 	
 	comentario_linha = '--';
-	comentario_em_bloco= '{-' '-}';
+	abre_bloco = '{-';
+	fecha_bloco = '-}';
 	
  
 Ignored Tokens
