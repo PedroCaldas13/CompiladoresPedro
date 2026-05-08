@@ -67,9 +67,7 @@ Tokens
 	
  
 Ignored Tokens
-	espaco_em_branco,
-	comentario_linha,
-	comentario_em_bloco;
+	espaco_em_branco;
 	
 Productions
 	ignore = {empty}; /* faz nada */
