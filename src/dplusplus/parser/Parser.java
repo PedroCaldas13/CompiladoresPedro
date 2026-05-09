@@ -229,7 +229,7 @@ public class Parser
     private static int[][][] actionTable;
 /*      {
 			{{-1, REDUCE, 0}, },
-			{{-1, ERROR, 1}, {39, ACCEPT, -1}, },
+			{{-1, ERROR, 1}, {42, ACCEPT, -1}, },
         };*/
     private static int[][][] gotoTable;
 /*      {

@@ -54,6 +54,9 @@ public interface Analysis extends Switch
     void caseTComentarioLinha(TComentarioLinha node);
     void caseTAbreBloco(TAbreBloco node);
     void caseTFechaBloco(TFechaBloco node);
+    void caseTComentarioBloco(TComentarioBloco node);
+    void caseTHifen(THifen node);
+    void caseTColchete(TColchete node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);
 }

@@ -6,6 +6,7 @@ Helpers
 	maiuscula = ['A'..'Z'];
 	letras = ['a'..'z'] | ['A'..'Z'];
 	espaco = ' ';
+	all = [0 .. 0xffff];
 		
 	/* segundo a tabel ASCII esses sao os valores para
 	   tabulacao, quebra de linha e retorno do carro */
@@ -64,6 +65,9 @@ Tokens
 	comentario_linha = '--';
 	abre_bloco = '{-';    /* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
 	fecha_bloco = '-}';		/* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
+	comentario_bloco = [all - ['-' + '}']];
+	hifen = '-';
+	colchete = '}';
 	
  
 Ignored Tokens

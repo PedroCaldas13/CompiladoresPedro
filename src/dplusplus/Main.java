@@ -1,7 +1,11 @@
 package dplusplus;
-import dplusplus.lexer.*;
-import dplusplus.node.*;
-import java.io.*;
+
+import java.io.FileReader;
+import java.io.PushbackReader;
+
+import dplusplus.lexer.Lexer;
+import dplusplus.node.EOF;
+import dplusplus.node.Token;
 
 public class Main
 {

@@ -321,6 +321,24 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTComentarioBloco(TComentarioBloco node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTHifen(THifen node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTColchete(TColchete node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseEOF(EOF node)
     {
         defaultCase(node);
