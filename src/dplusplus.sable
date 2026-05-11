@@ -20,6 +20,7 @@ Helpers
 /* Palavras reservadas */
 Tokens
 	family = 'family';
+	derives_from = 'derives from';
 	sim = 'yes';
 	nao = 'no';
 	answer = 'answer';
@@ -35,9 +36,13 @@ Tokens
 	div = '/';
 	object = 'object';
 	unalterable = 'unalterable';
+	alterable = 'alterable';
 	function = 'function';
 	in_case_that = 'in case that';
 	aslongas = 'as long as';
+	otherwise = 'otherwise';
+	if = 'if';
+	else = 'else';
 	and = 'and';
 	not = '!';
 	or = 'or';
@@ -45,6 +50,7 @@ Tokens
 	menor_que = '<';
 	igual = '=';
 	atribuicao = '<<';
+	ponto_entrada = '>>';
 	par_esq = '(';
 	par_dir = ')';
 	ponto = '.';
