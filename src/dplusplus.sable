@@ -20,7 +20,8 @@ Helpers
 /* Palavras reservadas */
 Tokens
 	family = 'family';
-	derives_from = 'derives from';
+	derives = 'derives';
+	from = 'from';
 	sim = 'yes';
 	nao = 'no';
 	answer = 'answer';
@@ -38,8 +39,11 @@ Tokens
 	unalterable = 'unalterable';
 	alterable = 'alterable';
 	function = 'function';
-	in_case_that = 'in case that';
-	aslongas = 'as long as';
+	in = 'in';
+	case = 'case';
+ 	that = 'that';
+	as = 'as';
+	long = 'long';
 	otherwise = 'otherwise';
 	if = 'if';
 	else = 'else';
