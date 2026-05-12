@@ -7,9 +7,6 @@ Helpers
 	letras = ['a'..'z'] | ['A'..'Z'];
 	espaco = ' ';
 	all = [0 .. 0xffff];
-		
-	/* segundo a tabel ASCII esses sao os valores para
-	   tabulacao, quebra de linha e retorno do carro */
 	   
 	nl = 10;   /* \n */
 	tab = 9;   /* \t */
@@ -64,24 +61,19 @@ Tokens
 	inteiro = digito+;
 	real = digito+ '.' digito+; 
 	
-	/* aqui começam as incertezas */
-	
 	id = minuscula  (digito | letras | '_')*;
 	id_classe = maiuscula (digito | letras | '_')*;
 	espaco_em_branco = (espaco | nl | tab | rc )+;
 	
-	/* falta ver como faz esses comentarios de bloco e linha */
-	
 	comentario_linha = '--';
-	abre_bloco = '{-';    /* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
-	fecha_bloco = '-}';		/* nao funciona como deveria, ta dando como token nao reconhecido memso estando no alfabeto*/
+	abre_bloco = '{-';
+	fecha_bloco = '-}';
 	comentario_bloco = [all - ['-' + '}']];
 	hifen = '-';
-	colchete = '}';
+	chaves = '}';
 	
  
 Ignored Tokens
-	espaco_em_branco;
-	
-Productions
-	ignore = {empty}; /* faz nada */
+	espaco_em_branco,
+	comentario_bloco,
+	comentario_linha;
