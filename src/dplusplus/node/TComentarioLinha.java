@@ -7,14 +7,14 @@ import dplusplus.analysis.*;
 @SuppressWarnings("nls")
 public final class TComentarioLinha extends Token
 {
-    public TComentarioLinha()
+    public TComentarioLinha(String text)
     {
-        super.setText("--");
+        setText(text);
     }
 
-    public TComentarioLinha(int line, int pos)
+    public TComentarioLinha(String text, int line, int pos)
     {
-        super.setText("--");
+        setText(text);
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,12 @@ public final class TComentarioLinha extends Token
     @Override
     public Object clone()
     {
-      return new TComentarioLinha(getLine(), getPos());
+      return new TComentarioLinha(getText(), getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTComentarioLinha(this);
-    }
-
-    @Override
-    public void setText(@SuppressWarnings("unused") String text)
-    {
-        throw new RuntimeException("Cannot change TComentarioLinha text.");
     }
 }

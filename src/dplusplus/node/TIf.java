@@ -5,16 +5,16 @@ package dplusplus.node;
 import dplusplus.analysis.*;
 
 @SuppressWarnings("nls")
-public final class THifen extends Token
+public final class TIf extends Token
 {
-    public THifen()
+    public TIf()
     {
-        super.setText("-");
+        super.setText("if");
     }
 
-    public THifen(int line, int pos)
+    public TIf(int line, int pos)
     {
-        super.setText("-");
+        super.setText("if");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class THifen extends Token
     @Override
     public Object clone()
     {
-      return new THifen(getLine(), getPos());
+      return new TIf(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTHifen(this);
+        ((Analysis) sw).caseTIf(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change THifen text.");
+        throw new RuntimeException("Cannot change TIf text.");
     }
 }

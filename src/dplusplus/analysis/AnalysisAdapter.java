@@ -69,19 +69,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseStart(Start node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAEmptyIgnore(AEmptyIgnore node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTFamily(TFamily node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTDerives(TDerives node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTFrom(TFrom node)
     {
         defaultCase(node);
     }
@@ -177,19 +177,61 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTAlterable(TAlterable node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTFunction(TFunction node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTInCaseThat(TInCaseThat node)
+    public void caseTIn(TIn node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTAslongas(TAslongas node)
+    public void caseTCase(TCase node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTThat(TThat node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTAs(TAs node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTLong(TLong node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTOtherwise(TOtherwise node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTIf(TIf node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTElse(TElse node)
     {
         defaultCase(node);
     }
@@ -232,6 +274,12 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTAtribuicao(TAtribuicao node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTPontoEntrada(TPontoEntrada node)
     {
         defaultCase(node);
     }
@@ -322,18 +370,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTComentarioBloco(TComentarioBloco node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTHifen(THifen node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTColchete(TColchete node)
     {
         defaultCase(node);
     }

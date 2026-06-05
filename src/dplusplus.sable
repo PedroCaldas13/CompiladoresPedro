@@ -11,69 +11,78 @@ Helpers
 	nl = 10;   /* \n */
 	tab = 9;   /* \t */
 	rc = 13;   /* \r */
+	nao_fim_de_linha = [all - [rc + nl]];
 	
+
+States
+	normal,
+	comentario;
 	
 	
 /* Palavras reservadas */
 Tokens
-	family = 'family';
-	derives = 'derives';
-	from = 'from';
-	sim = 'yes';
-	nao = 'no';
-	answer = 'answer';
-	number = 'number';
-	start = 'start';
-	finish = 'finish';
-	procedure = 'procedure';
-	abre_colchete = '[';
-	fecha_colchete = ']';
-	mais = '+';
-	menos = '-';
-	mult = '*';
-	div = '/';
-	object = 'object';
-	unalterable = 'unalterable';
-	alterable = 'alterable';
-	function = 'function';
-	in = 'in';
-	case = 'case';
- 	that = 'that';
-	as = 'as';
-	long = 'long';
-	otherwise = 'otherwise';
-	if = 'if';
-	else = 'else';
-	and = 'and';
-	not = '!';
-	or = 'or';
-	maior_que = '>';
-	menor_que = '<';
-	igual = '=';
-	atribuicao = '<<';
-	ponto_entrada = '>>';
-	par_esq = '(';
-	par_dir = ')';
-	ponto = '.';
-	virgula = ',';
-	separar_expressao = '|';
-	e_comercial = '&';
-	inteiro = digito+;
-	real = digito+ '.' digito+; 
+	{normal} family = 'family';
+	{normal}derives = 'derives';
+	{normal}from = 'from';
+	{normal}sim = 'yes';
+	{normal}nao = 'no';
+	{normal}answer = 'answer';
+	{normal}number = 'number';
+	{normal}start = 'start';
+	{normal}finish = 'finish';
+	{normal}procedure = 'procedure';
+	{normal}abre_colchete = '[';
+	{normal}fecha_colchete = ']';
+	{normal}mais = '+';
+	{normal}menos = '-';
+	{normal}mult = '*';
+	{normal}div = '/';
+	{normal}object = 'object';
+	{normal}unalterable = 'unalterable';
+	{normal}alterable = 'alterable';
+	{normal}function = 'function';
+	{normal}in = 'in';
+	{normal}case = 'case';
+ 	{normal}that = 'that';
+	{normal}as = 'as';
+	{normal}long = 'long';
+	{normal}otherwise = 'otherwise';
+	{normal}if = 'if';
+	{normal}else = 'else';
+	{normal}and = 'and';
+	{normal}not = '!';
+	{normal}or = 'or';
+	{normal}maior_que = '>';
+	{normal}menor_que = '<';
+	{normal}igual = '=';
+	{normal}atribuicao = '<<';
+	{normal}ponto_entrada = '>>';
+	{normal}par_esq = '(';
+	{normal}par_dir = ')';
+	{normal}ponto = '.';
+	{normal}virgula = ',';
+	{normal}separar_expressao = '|';
+	{normal}e_comercial = '&';
+	{normal}inteiro = digito+;
+	{normal}real = digito+ '.' digito+; 
 	
-	id = minuscula  (digito | letras | '_')*;
-	id_classe = maiuscula (digito | letras | '_')*;
-	espaco_em_branco = (espaco | nl | tab | rc )+;
+	{normal}id = minuscula  (letras | '_')*;
+	{normal}id_classe = maiuscula (letras | '_')*;
+	{normal}espaco_em_branco = (espaco | nl | tab | rc )+;
 	
-	comentario_linha = '--';
-	abre_bloco = '{-';
-	fecha_bloco = '-}';
-	comentario_bloco = [all - ['-' + '}']];
-	hifen = '-';
-	chaves = '}';
+	{normal} comentario_linha = '--' nao_fim_de_linha*;
+	{normal->comentario} abre_bloco = '{-';
+	{comentario->normal} fecha_bloco = '-}';
+	{comentario} comentario_bloco = [all - ['-' + '}']]+ | '-' | '}';
 	
  
 Ignored Tokens
 	espaco_em_branco,
 	comentario_bloco,
-	comentario_linha;
+	comentario_linha,
+	abre_bloco,
+	fecha_bloco;
+
+
+Productions
+	

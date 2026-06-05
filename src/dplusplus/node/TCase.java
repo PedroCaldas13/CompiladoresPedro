@@ -5,16 +5,16 @@ package dplusplus.node;
 import dplusplus.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TColchete extends Token
+public final class TCase extends Token
 {
-    public TColchete()
+    public TCase()
     {
-        super.setText("}");
+        super.setText("case");
     }
 
-    public TColchete(int line, int pos)
+    public TCase(int line, int pos)
     {
-        super.setText("}");
+        super.setText("case");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TColchete extends Token
     @Override
     public Object clone()
     {
-      return new TColchete(getLine(), getPos());
+      return new TCase(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTColchete(this);
+        ((Analysis) sw).caseTCase(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TColchete text.");
+        throw new RuntimeException("Cannot change TCase text.");
     }
 }
