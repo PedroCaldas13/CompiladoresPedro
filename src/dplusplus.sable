@@ -68,6 +68,7 @@ Tokens
 	
 	{normal}id = minuscula  (letras | '_')*;
 	{normal}id_classe = maiuscula (letras | '_')*;
+	{normal} id_composto = minuscula (letras | '_')* ('.' minuscula (letras | '_')*)+;
 	{normal}espaco_em_branco = (espaco | nl | tab | rc )+;
 	
 	{normal} comentario_linha = '--' nao_fim_de_linha*;
@@ -83,6 +84,144 @@ Ignored Tokens
 	abre_bloco,
 	fecha_bloco;
 
-
 Productions
+
+	programa = genealogia? def_classe+;
+
+	genealogia = relacao relacao_extra* ponto;
+
+	relacao_extra = e_comercial relacao;
+
+	relacao = family [filha]:tipo_classe derives from [mae]:tipo_classe;
+	
+	def_classe = family tipo_classe start atributos metodos finish;
+
+	atributos = dec_geral*;
+
+	dec_geral = 
+		{obj} dec_obj | 
+		{var} dec_var | 
+		{cons} dec_cons;
+
+	metodos = dec_metodo*;
+
+	dec_metodo = 
+		{procedimento} dec_procedimento | 
+		{funcao} dec_funcao;
+
+	dec_obj = object tipo_classe id ponto;
+
+	dec_var = alterable tipo_primitivo id atribuicao exp ponto;
+
+	dec_cons = unalterable tipo_primitivo id atribuicao exp ponto;
+
+	tipo = 
+		{classe} tipo_classe | 
+		{primitivo} tipo_primitivo;
+		
+	tipo_classe = id_classe;
+	
+	tipo_primitivo = 
+		{answer} answer | 
+		{number} number;
+
+	dec_procedimento =
+		{com_bloco} ponto_entrada? procedure id abre_colchete parametros fecha_colchete bloco_cmd |
+		{sem_bloco} procedure id abre_colchete parametros fecha_colchete ponto;
+
+	dec_funcao = 
+		{com_bloco} function tipo id abre_colchete parametros fecha_colchete bloco_exp |
+		{sem_bloco} function tipo id abre_colchete parametros fecha_colchete ponto;
+
+	parametros = 
+		{vazio} | 
+		{lista} parametro parametro_extra*;
+		
+	parametro_extra = separar_expressao parametro;
+	
+	parametro = tipo id;
+
+	comando = 
+		{casado} comando_casado | 
+		{nao_casado} comando_nao_casado;
+
+	comando_casado =
+		{ifelse} in case that par_esq exp par_dir [cmd_if]:comando_casado otherwise [cmd_else]:comando_casado |
+		{while} [primeiro_as]:as long [segundo_as]:as par_esq exp par_dir comando_casado |
+		{atribuicao} id atribuicao exp ponto |
+		{chamada} chamada ponto |
+		{bloco} bloco_cmd;
+
+	comando_nao_casado =
+		{if} in case that par_esq exp par_dir comando |
+		{ifelse} in case that par_esq exp par_dir [cmd_if]:comando_casado otherwise [cmd_else]:comando_nao_casado |
+		{while} [primeiro_as]:as long [segundo_as]:as par_esq exp par_dir comando_nao_casado;
+
+	bloco_cmd = start dec_geral* comando* finish;
+
+	exp = 
+		{ternario} if par_esq [cond]:exp_or par_dir [verdadeiro]:exp else [falso]:exp | 
+		{or} exp_or;
+
+	exp_or = 
+		{or} exp_or or exp_and | 
+		{and} exp_and;
+
+	exp_and = 
+		{and} exp_and and exp_igual | 
+		{igual} exp_igual;
+
+	exp_igual = 
+		{igual} exp_igual igual exp_relacional | 
+		{relacional} exp_relacional;
+
+	exp_relacional = 
+		{maior} exp_relacional maior_que exp_soma | 
+		{menor} exp_relacional menor_que exp_soma | 
+		{soma} exp_soma;
+
+	exp_soma = 
+		{mais} exp_soma mais exp_mult | 
+		{menos} exp_soma menos exp_mult | 
+		{mult} exp_mult;
+
+	exp_mult = 
+		{mult} exp_mult mult exp_unario | 
+		{div} exp_mult div exp_unario | 
+		{unario} exp_unario;
+
+	exp_unario = 
+		{not} not exp_unario | 
+		{neg} menos exp_unario | 
+		{fator} fator;
+
+	fator = 
+		{real} real | 
+		{inteiro} inteiro | 
+		{sim} sim | 
+		{nao} nao | 
+		{id} id |
+		{acesso_atributo} acesso_atributo |
+		{chamada} chamada | 
+		{parens} par_esq exp par_dir | 
+		{bloco} bloco_exp;
+
+
+	acesso_atributo = 
+		{acesso} id_composto+ atributo;
+	
+	bloco_exp = 
+		{bloco}start dec_geral* exp finish;
+	
+	atributo = 
+		{atributo} id;
+	
+	chamada = 
+		{chamada} id_composto* id abre_colchete lista_exp fecha_colchete;
+	
+	lista_exp = 
+		{vazia} | 
+		{lista} exp exp_extra*;
+		
+	exp_extra = separar_expressao exp;
 	
